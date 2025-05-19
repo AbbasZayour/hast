@@ -1,0 +1,230 @@
+/* Page 2 specific styles */
+:root {
+    --memorial-primary: #1a1a1a;
+    --memorial-secondary: #2c3e50;
+    --memorial-accent: #c0392b;
+    --memorial-text: #2c3e50;
+    --memorial-background: rgba(255, 255, 255, 0.97);
+}
+
+.memorial-image {
+    width: 100%;
+    max-width: 400px;
+    margin: 0 auto 30px;
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.memorial-image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.1) 100%);
+    pointer-events: none;
+}
+
+.prayer-content {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background: var(--memorial-background);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.prayer-text {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.prayer-text p {
+    font-size: 1.2rem;
+    line-height: 2;
+    margin-bottom: 1.5em;
+    color: var(--memorial-text);
+}
+
+.prayer-text p:last-child {
+    margin-bottom: 0;
+    font-style: italic;
+    color: var(--memorial-secondary);
+}
+
+.buttons-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+}
+
+.toggle-button {
+    background: var(--memorial-primary);
+    color: white;
+    border: none;
+    padding: 15px 25px;
+    font-size: 1.1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    font-family: 'Cairo', sans-serif;
+}
+
+.toggle-button:hover {
+    background: var(--memorial-secondary);
+    transform: translateY(-2px);
+}
+
+.toggle-button .arrow {
+    transition: transform 0.3s ease;
+}
+
+.hidden {
+    display: none;
+    margin-top: 15px;
+}
+
+.show {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+    animation: fadeIn 0.3s ease;
+}
+
+.styled-button {
+    background: var(--memorial-background);
+    color: var(--memorial-text);
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-align: center;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    font-family: 'Cairo', sans-serif;
+}
+
+.styled-button:hover {
+    background: var(--memorial-accent);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .memorial-image {
+        max-width: 300px;
+        margin-bottom: 20px;
+    }
+
+    .prayer-content {
+        padding: 15px;
+    }
+
+    .prayer-text {
+        padding: 15px;
+    }
+
+    .prayer-text p {
+        font-size: 1.1rem;
+    }
+
+    .toggle-button {
+        padding: 12px 20px;
+        font-size: 1rem;
+    }
+
+    .show {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .memorial-image {
+        max-width: 250px;
+        margin-bottom: 15px;
+    }
+
+    .prayer-content {
+        padding: 10px;
+    }
+
+    .prayer-text {
+        padding: 10px;
+    }
+
+    .prayer-text p {
+        font-size: 1rem;
+    }
+
+    .toggle-button {
+        padding: 10px 15px;
+        font-size: 0.95rem;
+    }
+
+    .styled-button {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+}
+
+/* Print styles */
+@media print {
+    .memorial-image {
+        max-width: 200px;
+        margin-bottom: 20px;
+        box-shadow: none;
+    }
+
+    .hero-image {
+        filter: grayscale(100%);
+    }
+
+    .prayer-content {
+        box-shadow: none;
+        max-width: 100%;
+    }
+
+    .toggle-button {
+        background: none;
+        color: black;
+        border: 1px solid black;
+    }
+
+    .styled-button {
+        border: 1px solid black;
+        color: black;
+    }
+
+    .show {
+        display: grid;
+    }
+} 
